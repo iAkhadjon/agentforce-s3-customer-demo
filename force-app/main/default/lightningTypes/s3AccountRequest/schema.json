@@ -1,0 +1,5 @@
+{
+  "title": "S3 Account Request",
+  "description": "Optional S3 object configuration for the account data action.",
+  "lightning:type": "@apexClassType/c__S3AccountRequest"
+}

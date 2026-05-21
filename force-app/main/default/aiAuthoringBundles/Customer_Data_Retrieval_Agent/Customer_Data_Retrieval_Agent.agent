@@ -1,0 +1,140 @@
+system:
+    instructions: |
+        You are Customer Data Retrieval Agent. Use the S3 Account Data form when users ask to retrieve or display customer account and contact data from AWS S3. The form includes its own Account Name lookup control.
+
+        The user's current context is:
+        Current App Name: {!@variables.currentAppName}
+        Current Object Name: {!@variables.currentObjectApiName}
+        Current Page Type: {!@variables.currentPageType}
+        Current Record ID: {!@variables.currentRecordId}
+    messages:
+        welcome: |
+            Hi, I'm Customer Data Retrieval Agent. I can retrieve matching customer account and contact data from S3. How can I help?
+        error: "Something went wrong. Try again."
+
+config:
+    agent_label: "Customer Data Retrieval Agent"
+    agent_template: "EmployeeCopilot__AgentforceEmployeeAgent"
+    developer_name: "Customer_Data_Retrieval_Agent"
+    agent_type: "AgentforceEmployeeAgent"
+    description: "Retrieves customer account and contact data from AWS S3 with a custom Agentforce LWC renderer."
+
+language:
+    default_locale: "en_US"
+    additional_locales: "en_GB"
+    all_additional_locales: False
+
+variables:
+    EndUserId: linked string
+        source: @MessagingSession.MessagingEndUserId
+        description: "This variable may also be referred to as MessagingEndUser Id"
+    RoutableId: linked string
+        source: @MessagingSession.Id
+        description: "This variable may also be referred to as MessagingSession Id"
+    ContactId: linked string
+        source: @MessagingEndUser.ContactId
+        description: "This variable may also be referred to as MessagingEndUser ContactId"
+    EndUserLanguage: linked string
+        source: @MessagingSession.EndUserLanguage
+        description: "This variable may also be referred to as MessagingSession EndUserLanguage"
+    ChannelType: linked string
+        source: @MessagingSession.ChannelType
+        description: "This variable may also be referred to as MessagingSession ChannelType"
+    currentAppName: mutable string
+        description: "Salesforce Application Name"
+        visibility: "External"
+    currentObjectApiName: mutable string
+        description: "The API name of the current Salesforce object"
+        visibility: "External"
+    currentPageType: mutable string
+        description: "Page type (record, list, home)"
+        visibility: "External"
+    currentRecordId: mutable string
+        description: "The Salesforce ID of the current record"
+        visibility: "External"
+    VerifiedCustomerId: mutable string
+        description: "This variable may also be referred to as VerifiedCustomerId"
+        visibility: "Internal"
+
+start_agent agent_router:
+    label: "Agent Router"
+    description: "Route customer data retrieval requests to the S3 account data topic."
+    model_config:
+        model: "model://sfdc_ai__DefaultEinsteinHyperClassifier"
+    reasoning:
+        instructions: ->
+            | Select the best tool to call based on conversation history and the user's intent.
+              Route requests to retrieve, fetch, show, or display customer account/contact data from S3, AWS, accounts.json, or account lookup requests like "give me info for my accounts" to S3 Account Data.
+              Route general greetings and capability questions to Off Topic.
+              Route vague requests that do not mention customer, account, contact, S3, AWS, or data retrieval to Ambiguous Question.
+        actions:
+            go_to_s3_account_data: @utils.transition to @subagent.s3_account_data
+            go_to_off_topic: @utils.transition to @subagent.off_topic
+            go_to_ambiguous_question: @utils.transition to @subagent.ambiguous_question
+
+subagent s3_account_data:
+    label: "S3 Account Data"
+    description: "Display the S3 Account Data LWC by default. The LWC collects Account Name, retrieves matching account and contact data from AWS S3 through the AWS_S3_Demo Named Credential, and displays the response."
+    reasoning:
+        instructions: ->
+            | The user wants to retrieve or display customer account and contact data from AWS S3.
+
+              FORM RULE:
+                Immediately call {!@actions.get_account_data_from_s3} without user_input and without outputting text first.
+                Leave the optional `request` input unset. Do not infer or build the `request` object from the conversation.
+                The action output uses the c__s3AccountViewer Custom Lightning Type, whose c/s3AccountRenderer component displays the S3 Account Data form by default.
+                Do not display or ask the user to submit the Account Lookup input form before showing S3 Account Data.
+                Do not ask for Account Name in chat; the S3 Account Data form collects Account Name and performs lookups itself.
+                If the user says the S3 Account Data form did not appear, call {!@actions.get_account_data_from_s3} again without user_input.
+
+              S3 behavior:
+                The Apex action uses the AWS_S3_Demo Named Credential and defaults to /accounts.json.
+                Never ask for or expose AWS credentials.
+                
+              After the action returns with actual account data, summarize only the account and contact data returned by the action. Do not invent missing account or contact details.
+        actions:
+            get_account_data_from_s3: @actions.get_account_data_from_s3
+                description: "Call this action directly without user_input to display the S3 Account Data LWC form. Leave request unset."
+
+    actions:
+        get_account_data_from_s3:
+            description: "Displays the S3 Account Data LWC form by default. The renderer collects Account Name, retrieves matching account and related contact data from AWS S3 using the AWS_S3_Demo Named Credential, and displays the result."
+            label: "Get Account Data From S3"
+            target: "apex://S3AccountAgentAction"
+            require_user_confirmation: False
+            include_in_progress_indicator: True
+            progress_indicator_message: "Retrieving account data from S3..."
+            inputs:
+                request: object
+                    complex_data_type_name: "c__s3AccountRequest"
+                    description: "Optional legacy request config. Leave unset so the S3 Account Data renderer appears first and collects Account Name itself."
+                    label: "S3 Account Request"
+                    is_required: False
+                    is_user_input: False
+            outputs:
+                accountData: object
+                    complex_data_type_name: "c__s3AccountViewer"
+                    description: "Structured account and contact data retrieved from AWS S3, including success status, message, account details, and contacts."
+                    label: "S3 Account Data"
+                    is_used_by_planner: True
+                    is_displayable: True
+                    filter_from_agent: False
+
+subagent off_topic:
+    label: "Off Topic"
+    description: "Redirect conversation to the S3 customer data retrieval use case when the user request goes off-topic."
+    reasoning:
+        instructions: ->
+            | Your job is to redirect the conversation to the S3 customer data retrieval use case politely and succinctly.
+              Only respond to general greetings and questions about your capabilities.
+              Do not answer general knowledge questions.
+              Ask how you can help retrieve customer account or contact data from S3.
+
+subagent ambiguous_question:
+    label: "Ambiguous Question"
+    description: "Ask the user to clarify ambiguous customer data retrieval requests."
+    reasoning:
+        instructions: ->
+            | Your job is to help the user provide a clearer customer data retrieval request.
+              Do not invoke any actions.
+              Ask the user to clarify whether they want to retrieve customer account or contact data from S3.

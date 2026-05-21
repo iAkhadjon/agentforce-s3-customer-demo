@@ -1,0 +1,5 @@
+{
+  "title": "S3 Account Viewer",
+  "description": "Account and contact data returned from AWS S3.",
+  "lightning:type": "@apexClassType/c__S3AccountResponse"
+}

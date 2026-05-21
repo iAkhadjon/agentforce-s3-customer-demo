@@ -1,0 +1,44 @@
+{
+  "accounts": [
+    {
+      "id": "001DEMO000001",
+      "name": "Acme Korea",
+      "industry": "Technology",
+      "phone": "+82-2-1234-5678",
+      "website": "https://www.acme.example"
+    },
+    {
+      "id": "001DEMO000002",
+      "name": "Acme Japan",
+      "industry": "Manufacturing",
+      "phone": "+81-3-1234-5678",
+      "website": "https://www.acme-japan.example"
+    }
+  ],
+  "contacts": [
+    {
+      "id": "003DEMO000001",
+      "accountId": "001DEMO000001",
+      "firstName": "Jin",
+      "lastName": "Kim",
+      "email": "jin.kim@acme.example",
+      "title": "VP Sales"
+    },
+    {
+      "id": "003DEMO000002",
+      "accountId": "001DEMO000001",
+      "firstName": "Mina",
+      "lastName": "Park",
+      "email": "mina.park@acme.example",
+      "title": "Solution Architect"
+    },
+    {
+      "id": "003DEMO000003",
+      "accountId": "001DEMO000002",
+      "firstName": "Hana",
+      "lastName": "Sato",
+      "email": "hana.sato@acme-japan.example",
+      "title": "Account Director"
+    }
+  ]
+}

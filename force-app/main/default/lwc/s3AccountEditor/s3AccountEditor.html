@@ -1,0 +1,16 @@
+<template>
+  <lightning-card title="Account Lookup" icon-name="standard:account">
+    <div class="slds-var-p-horizontal_medium slds-var-p-bottom_medium">
+      <lightning-input
+        label="Account Name"
+        data-field="accountName"
+        value={accountName}
+        type="text"
+        required
+        onchange={handleInputChange}
+        read-only={readOnly}
+      >
+      </lightning-input>
+    </div>
+  </lightning-card>
+</template>

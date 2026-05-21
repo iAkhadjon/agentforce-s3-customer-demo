@@ -1,0 +1,252 @@
+[
+  {
+    "account": {
+      "id": "001DEMO000001",
+      "name": "Acme Korea",
+      "industry": "Technology",
+      "phone": "+82-2-1234-1001",
+      "website": "https://www.acmekorea.example"
+    },
+    "contacts": [
+      {
+        "id": "003DEMO000001",
+        "firstName": "Jin",
+        "lastName": "Kim",
+        "email": "jin.kim@acmekorea.example",
+        "title": "VP Sales"
+      },
+      {
+        "id": "003DEMO000002",
+        "firstName": "Mina",
+        "lastName": "Park",
+        "email": "mina.park@acmekorea.example",
+        "title": "Solution Architect"
+      }
+    ]
+  },
+  {
+    "account": {
+      "id": "001DEMO000002",
+      "name": "Han River Logistics",
+      "industry": "Logistics",
+      "phone": "+82-2-1234-1002",
+      "website": "https://www.hanriverlogistics.example"
+    },
+    "contacts": [
+      {
+        "id": "003DEMO000003",
+        "firstName": "David",
+        "lastName": "Lee",
+        "email": "david.lee@hanriverlogistics.example",
+        "title": "Operations Manager"
+      },
+      {
+        "id": "003DEMO000004",
+        "firstName": "Soo",
+        "lastName": "Choi",
+        "email": "soo.choi@hanriverlogistics.example",
+        "title": "Account Executive"
+      }
+    ]
+  },
+  {
+    "account": {
+      "id": "001DEMO000003",
+      "name": "Blue Ocean Finance",
+      "industry": "Finance",
+      "phone": "+82-2-1234-1003",
+      "website": "https://www.blueoceanfinance.example"
+    },
+    "contacts": [
+      {
+        "id": "003DEMO000005",
+        "firstName": "Ethan",
+        "lastName": "Jung",
+        "email": "ethan.jung@blueoceanfinance.example",
+        "title": "Financial Advisor"
+      },
+      {
+        "id": "003DEMO000006",
+        "firstName": "Grace",
+        "lastName": "Han",
+        "email": "grace.han@blueoceanfinance.example",
+        "title": "Client Success Manager"
+      }
+    ]
+  },
+  {
+    "account": {
+      "id": "001DEMO000004",
+      "name": "Skyline Telecom",
+      "industry": "Telecommunications",
+      "phone": "+82-2-1234-1004",
+      "website": "https://www.skylinetelecom.example"
+    },
+    "contacts": [
+      {
+        "id": "003DEMO000007",
+        "firstName": "Ryan",
+        "lastName": "Kang",
+        "email": "ryan.kang@skylinetelecom.example",
+        "title": "Network Engineer"
+      },
+      {
+        "id": "003DEMO000008",
+        "firstName": "Olivia",
+        "lastName": "Shin",
+        "email": "olivia.shin@skylinetelecom.example",
+        "title": "Sales Director"
+      }
+    ]
+  },
+  {
+    "account": {
+      "id": "001DEMO000005",
+      "name": "Global Foods Korea",
+      "industry": "Food & Beverage",
+      "phone": "+82-2-1234-1005",
+      "website": "https://www.globalfoods.example"
+    },
+    "contacts": [
+      {
+        "id": "003DEMO000009",
+        "firstName": "Daniel",
+        "lastName": "Yoon",
+        "email": "daniel.yoon@globalfoods.example",
+        "title": "Procurement Lead"
+      },
+      {
+        "id": "003DEMO000010",
+        "firstName": "Sophia",
+        "lastName": "Lim",
+        "email": "sophia.lim@globalfoods.example",
+        "title": "Marketing Manager"
+      }
+    ]
+  },
+  {
+    "account": {
+      "id": "001DEMO000006",
+      "name": "Future Health Systems",
+      "industry": "Healthcare",
+      "phone": "+82-2-1234-1006",
+      "website": "https://www.futurehealth.example"
+    },
+    "contacts": [
+      {
+        "id": "003DEMO000011",
+        "firstName": "Lucas",
+        "lastName": "Seo",
+        "email": "lucas.seo@futurehealth.example",
+        "title": "Clinical Director"
+      },
+      {
+        "id": "003DEMO000012",
+        "firstName": "Emma",
+        "lastName": "Baek",
+        "email": "emma.baek@futurehealth.example",
+        "title": "Customer Support Lead"
+      }
+    ]
+  },
+  {
+    "account": {
+      "id": "001DEMO000007",
+      "name": "NextGen Robotics",
+      "industry": "Technology",
+      "phone": "+82-2-1234-1007",
+      "website": "https://www.nextgenrobotics.example"
+    },
+    "contacts": [
+      {
+        "id": "003DEMO000013",
+        "firstName": "Nathan",
+        "lastName": "Cho",
+        "email": "nathan.cho@nextgenrobotics.example",
+        "title": "AI Engineer"
+      },
+      {
+        "id": "003DEMO000014",
+        "firstName": "Ava",
+        "lastName": "Moon",
+        "email": "ava.moon@nextgenrobotics.example",
+        "title": "Product Manager"
+      }
+    ]
+  },
+  {
+    "account": {
+      "id": "001DEMO000008",
+      "name": "Urban Construction Co",
+      "industry": "Construction",
+      "phone": "+82-2-1234-1008",
+      "website": "https://www.urbanconstruction.example"
+    },
+    "contacts": [
+      {
+        "id": "003DEMO000015",
+        "firstName": "Henry",
+        "lastName": "Koo",
+        "email": "henry.koo@urbanconstruction.example",
+        "title": "Project Manager"
+      },
+      {
+        "id": "003DEMO000016",
+        "firstName": "Lily",
+        "lastName": "Jeon",
+        "email": "lily.jeon@urbanconstruction.example",
+        "title": "Architect"
+      }
+    ]
+  },
+  {
+    "account": {
+      "id": "001DEMO000009",
+      "name": "Pacific Travel Group",
+      "industry": "Travel",
+      "phone": "+82-2-1234-1009",
+      "website": "https://www.pacifictravel.example"
+    },
+    "contacts": [
+      {
+        "id": "003DEMO000017",
+        "firstName": "Jack",
+        "lastName": "Hong",
+        "email": "jack.hong@pacifictravel.example",
+        "title": "Travel Consultant"
+      },
+      {
+        "id": "003DEMO000018",
+        "firstName": "Ella",
+        "lastName": "Song",
+        "email": "ella.song@pacifictravel.example",
+        "title": "Regional Manager"
+      }
+    ]
+  },
+  {
+    "account": {
+      "id": "001DEMO000010",
+      "name": "Digital Education Labs",
+      "industry": "Education",
+      "phone": "+82-2-1234-1010",
+      "website": "https://www.digitaleducation.example"
+    },
+    "contacts": [
+      {
+        "id": "003DEMO000019",
+        "firstName": "Noah",
+        "lastName": "Bae",
+        "email": "noah.bae@digitaleducation.example",
+        "title": "Education Consultant"
+      },
+      {
+        "id": "003DEMO000020",
+        "firstName": "Chloe",
+        "lastName": "Kim",
+        "email": "chloe.kim@digitaleducation.example",
+        "title": "Training Specialist"
+      }
+    ]
+  }
+]

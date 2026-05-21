@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>Customer_Data_Retrieval_Agent</members>
+        <name>AiAuthoringBundle</name>
+    </types>
+    <types>
+        <members>S3AccountAgentAction</members>
+        <members>S3AccountAgentActionTest</members>
+        <members>S3AccountDTO</members>
+        <members>S3AccountRequest</members>
+        <members>S3AccountResponse</members>
+        <members>S3ContactDTO</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>AWS_S3_Demo</members>
+        <name>ExternalCredential</name>
+    </types>
+    <types>
+        <members>s3AccountEditor</members>
+        <members>s3AccountRenderer</members>
+        <name>LightningComponentBundle</name>
+    </types>
+    <types>
+        <members>s3AccountRequest</members>
+        <members>s3AccountViewer</members>
+        <name>LightningTypeBundle</name>
+    </types>
+    <types>
+        <members>AWS_S3_Demo</members>
+        <name>NamedCredential</name>
+    </types>
+    <version>66.0</version>
+</Package>
