@@ -6,7 +6,7 @@ It contains only the customer data retrieval path and omits non-S3 form/action m
 
 ## Demo
 
-- [Customer Data Retrieval Agent working demo](<how agent work.mov>)
+- [Customer Data Retrieval Agent working demo](customer-data-retrieval-agent-demo.mp4)
 
 ## Included Metadata
 
