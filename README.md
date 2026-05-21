@@ -4,6 +4,10 @@ This Salesforce DX repository contains a S3-only Agentforce implementation for `
 
 It contains only the customer data retrieval path and omits non-S3 form/action metadata.
 
+## Demo
+
+- [Customer Data Retrieval Agent working demo](<how agent work.mov>)
+
 ## Included Metadata
 
 - Agentforce authoring bundle: `Customer_Data_Retrieval_Agent`
@@ -111,6 +115,15 @@ sf org assign permset \
   --target-org targetOrgAlias
 ```
 
+After activating the agent, confirm the permission set has Agent Access:
+
+1. Open Salesforce Setup.
+2. Go to **Permission Sets**.
+3. Open **Customer Data Retrieval Agent Access**.
+4. Open **Agent Access**.
+5. Choose **Customer Data Retrieval Agent**.
+6. Save the permission set.
+
 ## Deployment Verification
 
 This deployment flow was verified against the local target org alias `webCrawling`.
@@ -179,6 +192,7 @@ Fix:
 3. Run `sf agent publish authoring-bundle`.
 4. Deploy `manifest/permission-set-package.xml`.
 5. Assign `Customer_Data_Retrieval_Agent_Access`.
+6. After activation, open **Customer Data Retrieval Agent Access** in Setup and confirm **Agent Access** includes **Customer Data Retrieval Agent**.
 
 ### Agent publish creates local generated metadata
 
